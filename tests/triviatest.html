@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+    	<title>Test</title>
+        <style>
+
+        	.buttons
+            {
+            	background-color: #0a0a0a;
+                color: white;
+            }
+
+            .buttons:hover
+            {
+            	background-color: #444444;
+            }
+
+
+        </style>
+
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function()
+            {
+                let feedback = document.querySelectorAll('.feedback');
+                let button = document.querySelectorAll('.buttons');
+                // Correct answer, change background color to green
+                let correct = document.querySelectorAll('.correct');
+                // When clicked, run function...
+                for (let i = 0; i < correct.length; i++)
+                {
+                    correct[i].addEventListener('click', function()
+                    {
+                        correct[i].style.backgroundColor = 'green';
+
+                        // Change color of feedback1 if correct to green?
+                        feedback[i].style.color = 'green';
+                        // Change value of feedback1 to 'Correct!'
+                        feedback[i].innerHTML = 'Correct!';
+                    });
+                };
+
+                // Wrong answer, change background color to red
+                let incorrect = document.querySelectorAll('.incorrect');
+                // For each incorrect answer, run function (only applies to selected option)
+                for (let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function()
+                    {
+                        incorrect[i].style.backgroundColor = 'red';
+
+                        // HARDCODE set different feedback assignments
+                        ass = 0;
+                        if (i < 4) {ass = 0} else {ass = 1};
+                        // Change color of feedback1 if incorrect to red?
+                        feedback[ass].style.color = 'red';
+                        // Change value of feedback1 to 'Incorrect!'
+                        feedback[ass].innerHTML = 'Incorrect!';
+                    });
+                };
+            });
+
+        </script>
+
+    </head>
+	<body style="background-color: #d0d0d0;">
+
+		<h1 style="background-color: #66ff33;">This is a heading</h1>
+
+		<h3>
+            What is the real name of Saul Goodman?<br>
+            <p class="feedback"></p>
+            <button class="buttons incorrect">Ted Beneke</button>
+            <button class="buttons incorrect">Werner Ziegler</button>
+            <button class="buttons incorrect">Jack Welker</button>
+            <button class="buttons correct">James McGill</button>
+            <button class="buttons incorrect">Howard Hamlin</button>
+            <br><br><br><br>
+
+
+            What is the key phrase you need to say to Ed Galbraith when you want to get 'disappeared'?<br>
+            <p class="feedback"></p>
+            <button class="buttons incorrect">I need a special act for my daughter's 7th birthday party</button>
+            <button class="buttons incorrect">The sunset over Sandia Peak is like a glass of pink wine</button>
+            <button class="buttons correct">I need a dust filter for a Hoover Max Extract® 60 Pressure Pro™</button>
+        </h3>
+
+	</body>
+</html>

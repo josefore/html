@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>greet</title>
+        <script>
+
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                alert('Hello ' + name);
+            }
+
+            function listen()
+            {
+                document.querySelector('form').addEventListener('submit', greet);
+            }
+
+            document.addEventListener('DOMContentLoaded', listen);
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <input id="name" placeholder="Name" type="text">
+            <input type="submit" value="hello">
+        </form>
+    </body>
+
+</html>
